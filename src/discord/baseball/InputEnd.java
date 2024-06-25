@@ -23,6 +23,7 @@ public class InputEnd {
                         System.out.println("1 또는 2를 입력하세요.");
                     }
             }
+            return false;
         }
     }
 }

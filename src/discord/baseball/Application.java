@@ -15,7 +15,9 @@ public class Application {
 
     public void startGame() {
         System.out.println("숫자 야구 게임을 시작합니다.");
+//        InputCompare에서 true를 반환하여 종료되는 형식.
         boolean gameEnd = false;
+//        랜덤값 생성, 본게임 컨테이너.
         while (true) {
             InputRandom inputRandom = new InputRandom(random);
             int[] computer = inputRandom.generateRandomNumbers();
@@ -23,6 +25,7 @@ public class Application {
             InputAnswer inputAnswer = new InputAnswer(scanner);
             gameEnd = false;
 
+//            gameEnd가 false인 동안 반복수행(InputAnswer 정답기입).
             while (!gameEnd) {
                 int[] inputnum = inputAnswer.getInput();
                 gameEnd = InputCompare.compareNumbers(computer, inputnum);
