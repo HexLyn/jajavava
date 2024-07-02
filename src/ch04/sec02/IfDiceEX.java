@@ -2,8 +2,10 @@ package ch04.sec02;
 
 public class IfDiceEX {
     public static void main(String[] args) {
-        int num = (int)(Math.random()*6)+1;
+        float num = (float)(Math.random()*6)+1;
 
+//        float, int, double 됨.
+        System.out.println(num);
         if(num==1) {
             System.out.println('1');
         } else if(num==2) {
