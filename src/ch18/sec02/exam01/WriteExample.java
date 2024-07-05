@@ -18,9 +18,12 @@ public class WriteExample {
             os.write(b);
             os.write(c);
 
+//            flush: 배치를 비워준다.
             os.flush();
+//            close: 사용한 스트림을 닫아준다.
             os.close();
         } catch (IOException e) {
+//            파일 입출력시 IOException 예외 처리 필수
             e.printStackTrace();
         }
     }
