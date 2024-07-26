@@ -3,7 +3,7 @@ import java.util.*;
 static Map<String, List<String>> wordsGraph = new HashMap<>();
 static Map<String, Boolean> visited = new HashMap<>();
 
-public class Solution {
+public class CharactorChange {
     public static int CharactorChange(String begin, String target, String[] words) {
         int answer = 0;
 
