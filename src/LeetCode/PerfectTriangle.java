@@ -1,15 +1,21 @@
 package LeetCode;
 
+import java.util.Arrays;
+
 class PerfectTriangle {
     public int solution(int[] sides) {
-        int answer = 0;
+        int order = 0;
 
-        for(int i= 0; i<sides.length; i++){
+        for(int i= 0; i<sides.length-1; i++){
             if(sides[i] > sides[i+1]){
-
+                order = sides[i];
+            } else if ( sides[i] < sides[i+1]){
+                order = sides[i+1];
             }
         }
+        int sum = Arrays.stream(sides).sum();
 
+        int answer = (sum-order > order) ? 1 : 2;
 
         return answer;
     }
