@@ -4,24 +4,30 @@ class TargetNumber {
     int answer;
     public int solution(int[] numbers, int target) {
         answer = 0;
+        // dfs 메서드 실행.
             dfs(0,0, numbers, target);
         return answer;
     }
 
         void dfs(int cur, int idx, int[] numbers, int target) {
 //            base case
+            // idx가 주어진 배열 numbers의 길이와 같다면(dfs를 끝까지 진행했으며),
             if (idx == numbers.length) {
+                // 주어진 target이 cur와 같다면(목표값을 달성했다면),
                 if (target == cur) {
+                    // 반환값을 ++해준다(가능한 경우의수를 +1해준다).
                     answer++;
                 }
                 return;
             }
 
-
-//            recursive cal
+//            재귀, recursive cal
+            // +를 해줬을 때,
             dfs(cur + numbers[idx], idx+1, numbers, target);
-            dfs(cur - numbers[idx], idx+1, numbers, target);
 
+            // -를 해줬을 때.
+            dfs(cur - numbers[idx], idx+1, numbers, target);
+            // 두 경우 모두를 재귀 호출하며 모든 경우의 수를 찾아 내려간다.
         }
     }
 

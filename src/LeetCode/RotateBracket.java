@@ -13,7 +13,8 @@ public class RotateBracket {
         for (int i = 0; i < s.length(); i++) {
             // 주어진 문자열의 길이만큼 반복하며, isvalid가 참일 경우
             // answer++을 수행한다.
-            if(isValid(extendedS.substring(i,s.length()+i))) answer++;
+            if(isValid(extendedS.substring(i,s.length()+i)))
+                answer++;
             // substring(startindex, endindex) start는 이상, end는 미만.
             // 위 코드에선 배열의 회전을 s+s에서
             // 원래길이 만큼 substring을 하는 것으로 표현.

@@ -41,6 +41,9 @@ public class StockPrice {
         // stack.push(4)로, answer = [0,0,1,0,0], stack = [0,1,3,4]
         // for문 종료.
 
+        // for문에서는 '주식 가격이 떨어졌을 경우'를 처리해준다.
+        // 이후 while문에서 떨어지지 않은 경우를 계산.
+
         while (!stack.isEmpty()) {
             //stack이 빌 때까지 수행.
             int pop = stack.pop();
@@ -74,7 +77,9 @@ public class StockPrice {
 
 // prices = [1, 2, 3, 2, 3]
 // return = [4, 3, 1, 1, 0]
-// prices[0]은 1, 1-2-3-2-3 끝까지 1보다 큼. =4리턴
+// prices[0]은 1, 1-2-3-2-3 끝까지 1보다 큼.
+// 끝까지 오르기만 했으니 떨어지지 않은 것.=4리턴
+
 // prices[1]도 2-3-2-3 끝까지 떨어지지는 않음 =3리턴
 // prices[2]는 3으로 바로 1초뒤 떨어짐. =1 리턴
 // prices[4]는 0초간 떨어지지 않음. =0 리턴
