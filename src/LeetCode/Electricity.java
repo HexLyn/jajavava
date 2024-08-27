@@ -1,37 +1,35 @@
 package LeetCode;
 
-import java.util.*;
-
-public class Electricity {
-    public int solution(int n, int[][] wires) {
-        int answer = Integer.MAX_VALUE;
-        boolean[] visited;
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-
-
-
-
-        for(int[]wire : wires) {
-            int a = wire[0];
-            int b = wire[1];
-            graph[a].remove(Integer.valueOf(b));
-            graph[b].remove(Integer.valueOf(a));
-        }
-
-        int dfs(int cur, int n) {
-            int count=1;
-            visited[cur]=true;
-            for(int next : graph.get(cur)) {
-                if (!visited[next]) {
-                    count += dfs(next, n);
-                }
-            }
-            answer =Math.min( answer, Math.abs(n -count *2)) ;
-            return count;
-        }
-        }
-
-    }
+//public class Electricity {
+//    public int solution(int n, int[][] wires) {
+//        int answer = Integer.MAX_VALUE;
+//        boolean[] visited;
+//        Map<Integer, List<Integer>> graph = new HashMap<>();
+//
+//
+//
+//
+//        for(int[]wire : wires) {
+//            int a = wire[0];
+//            int b = wire[1];
+//            graph[a].remove(Integer.valueOf(b));
+//            graph[b].remove(Integer.valueOf(a));
+//        }
+//
+//        int dfs(int cur, int n) {
+//            int count=1;
+//            visited[cur]=true;
+//            for(int next : graph.get(cur)) {
+//                if (!visited[next]) {
+//                    count += dfs(next, n);
+//                }
+//            }
+//            answer =Math.min( answer, Math.abs(n -count *2)) ;
+//            return count;
+//        }
+//        }
+//
+//    }
 
 // n개의 송전탑이 전선을 통해 트리형태로 연결.
 // 이 전선들 중 하나를 끊어 현재 네트워크를 2개로 분할한다.

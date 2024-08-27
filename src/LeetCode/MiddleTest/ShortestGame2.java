@@ -5,8 +5,8 @@ import java.util.Queue;
 
 class ShortestGame2 {
     public int solution(int[][] maps) {
-        int Clen = maps[0].length;
         int Rlen = maps.length;
+        int Clen = maps[0].length;
 
         boolean[][] visited = new boolean[Rlen][Clen];
         Queue<int[]> q = new ArrayDeque<>();
@@ -30,7 +30,9 @@ class ShortestGame2 {
             for(int i = 0; i < 4; i++) {
                 int newR = curR + dr[i];
                 int newC = curC + dc[i];
-                if(newR >= 0 && newR < Rlen && newC >= 0 && newC < Clen && maps[newR][newC] == 1 ) {
+                if(newR >= 0 && newR < Rlen &&
+                   newC >= 0 && newC < Clen &&
+                   maps[newR][newC] == 1 ) {
                     if(!visited[newR][newC]) {
                         visited[newR][newC] = true;
                         q.add(new int[]{newR, newC, dist+1});

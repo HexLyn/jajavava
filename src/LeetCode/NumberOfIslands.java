@@ -1,6 +1,6 @@
 package LeetCode;
 
-class NumberOfIsland {
+class NumberOfIslands {
         static boolean visited[][];
         // 해당 좌표의 방문 여부를 저장.
 
