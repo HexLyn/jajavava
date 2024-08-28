@@ -1,35 +1,40 @@
 package LeetCode.finalTest;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class FindPrimeNum {
+public class FindPrimeNum2 {
     Set<Integer> candidates = new HashSet<>();
     public int solution(String numbers) {
-        permutation("", numbers);
+        permutation(numbers, 0, new boolean[numbers.length()], 0);
 
-        int answer = 0;
+        int answer=0;
         for(int num : candidates) {
             if(isPrime(num)) answer++;
         }
-
         return answer;
     }
 
-    void permutation(String prefix, String remaining) {
-        if (!prefix.isEmpty()) {
-            candidates.add(Integer.parseInt(prefix));
-        }
-        for (int i = 0; i < remaining.length(); i++) {
-            permutation(prefix + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
+    void permutation(String numbers, int cur, boolean[] visited, int digit) {
+        if(digit == numbers.length()) return;
+
+        for(int i=0; i< numbers.length(); i++) {
+            if(visited[i]) continue;
+
+            int newValue = cur + (int)((numbers.charAt(i) - '0') * Math.pow(10, digit));
+            candidates.add(newValue);
+
+            visited[i] = true;
+            permutation(numbers, newValue, visited, digit + 1);
+            visited[i] = false;
         }
     }
 
-    private boolean isPrime(int num) {
+    boolean isPrime(int num) {
         if(num < 2) return false;
-
-        for(int i=2; i*i <= num; i++) {
-            if(num%i == 0) return false;
+        for(int i=2; i*i < num; i++) {
+            if(num % i == 0) return false;
         }
         return true;
     }

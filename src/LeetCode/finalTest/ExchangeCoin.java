@@ -1,6 +1,23 @@
 package LeetCode.finalTest;
 
 public class ExchangeCoin {
+    public int solution(int[] coins, int amount) {
+        int answer = dp(coins, amount);
+        return answer == Integer.MAX_VALUE ? -1 : answer;
+    }
+
+    public int dp(int[] coins, int amount) {
+        int result = Integer.MAX_VALUE;
+
+        if(amount == 0) return 0;
+
+        for(int coin : coins) {
+            if(amount - coin >= 0) {
+                result = Math.min(result, dp(coins,amount-coin));
+            }
+        }
+        return result == Integer.MAX_VALUE ? result : result +1;
+    }
 }
 
 // 정수 배열 coins가 주어진다.
